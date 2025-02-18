@@ -11,7 +11,7 @@ i18n.use(initReactI18next).init({
                 "login": "Login",
                 "email": "Email",
                 "password": "Password",
-                "signIn_btn": "SING IN",
+                "signIn_btn": "SIGN IN",
                 "login_with":"Or login with",
                 "Remember_me": "Remember me",
                 "recovery": "Password recovery",
