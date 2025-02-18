@@ -6,6 +6,7 @@ import Header from './Component/Header'
 import Signup from './Component/Signup'
 import Footer from './Component/Footer'
 import '../src/index.css'
+import '../src/Component/i18n/i18n'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,9 +17,13 @@ function App() {
       
       <div className="flex flex-col h-auto w-full max-w-md mx-auto ">
         <div className=''>
-        <Header/>
+          <div className='pb-10'><Header/></div>
+        
         <Signup/>
-       <Footer/>
+        <div className='pt-5'>
+        <Footer/>
+        </div>
+     
        </div>
       </div>
       </div>

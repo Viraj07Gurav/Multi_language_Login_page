@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import { Input } from "@material-tailwind/react";
+import { useTranslation } from 'react-i18next';
 
 function Signup() {
     const [fullName, setFullName] = useState("");
+    const { t } = useTranslation();
 
     return (
         <div className='bg-[#ffffff] p-4 rounded-2xl'>
             <div className='flex flex-col justify-center  items-center '>
-                <div className='flex justify-center items-center'>
-                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="po-logo po-logo-color" clip-rule="evenodd" viewBox="0 0 232 55" width="50%" height="50">
+                <div className='flex justify-center items-center  p-0 m-0 gap-0'>
+                    <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="po-logo po-logo-color" clip-rule="evenodd" viewBox="0 0 90 55" width="30%" height="50" >
                         <g transform="scale(0.56504 0.66298)">
                             <path fill="none" d="M0 0h410.59v99.55H0z"></path>
-                             
+
                             <g>
                                 <path fill="#002dda" d="M71.006 4.544c18.717 6.815 31.528 21.323 31.528 38.07 0 16.756-12.815 31.264-31.532 38.072C52.29 73.878 39.47 59.37 39.47 42.615c0-16.752 12.82-31.26 31.536-38.07Z"></path>
                                 <path fill="#009cff" d="M71.003 4.542C77.489 1.581 84.888 0 92.713 0c27.201 0 49.283 19.095 49.283 42.617 0 23.519-22.082 42.614-49.283 42.614-7.825 0-15.224-1.578-21.714-4.543 16.357-6.811 27.564-21.319 27.564-38.07 0-16.753-11.203-31.26-27.56-38.075Z"></path>
@@ -22,48 +24,43 @@ function Signup() {
                             </g>
                         </g>
                     </svg>
-                    <p className='font-semibold text-xl'>Trade</p>
+                    <p className='font-medium text-xl text-[#1e385b]'>Trade</p>
                 </div>
-                <h2 className='font-bold text-3xl'>Sign in</h2>
-                <div className='flex justify-center md:flex flex-col justify-center items-center'>
-                    <p>Not registered yet?</p>
-                    <a href="">Registration</a>
+                <h2 className='font-bold text-3xl py-3'>{t('signup_title')}</h2>
+                <div className='mb-3 flex flex-col justify-center  items-center md:flex-row gap-3'>
+                    <p className='text-[#535c6d]'>{t('signup_description')}</p>
+                    <a href="" className='text-[#1e385b] underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800'>{t('Registration')}</a>
                 </div>
             </div>
             <div className='w-full'>
                 <div className='p-2'>
-            <Input type='email' variant="standard"  label="Email" name='email' required className='p-1 ' />
-            </div>
-            <div className='p-2'>
-            <Input variant="standard" label="password"  required name='password' className='py-4 ' />
-            </div>
+                    <Input type='email' variant="standard" label={t('email')} name='email' required className='p-1 ' />
+                </div>
+                <div className='p-2'>
+                    <Input variant="standard" label={t('password')} required name='password' className='py-2 ' />
+                </div>
             </div>
 
-            <div className='flex flex-col justify-between items-center py-4'>
-                <div className='flex justify-between flex-col'>
-                <label>
-                    <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" />Remember me
-                </label>
-                <p className='py-4'>Password Recovery</p>
+            <div className='flex flex-col justify-between items-center pb-2'>
+                <div className='flex flex-col justify-between  items-center md:flex-row md:gap-20 lg:gap-20'>
+                    <label className='text-[#758b9d] text-sm'>
+                        <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500" />{t("Remember_me")}
+                    </label>
+                    <a className='py-4 flex underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#'><span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span>&nbsp; {t('recovery')}</a>
                 </div>
-                <button className='text-white bg-blue-500 w-60 h-10 rounded-md bg-linear-to-r from-[#0099fa] to-[#002ed9]'>SIGN IN</button>
+                <button className='text-white bg-blue-500 w-60 h-10 rounded-[10px] bg-linear-to-r from-[#0099fa] to-[#002ed9] mt-5'>{t('signIn_btn')}</button>
             </div>
             <div className='flex  flex-col justify-center items-center py-6 '>
-                <label htmlFor="" className='mb-4'>Or Login with</label>
+                <label htmlFor="" className='mb-4 text-[#535c6d]'>{t('login_with')}</label>
                 <div className='flex justify-center gap-8'>
-                    <button className="flex items-center bg-[#1877F2] text-white border border-[#1877F2] rounded-lg shadow-md px-6 py-2 text-sm font-medium focus:outline-none  ">
-                        <svg
-                            className="h-6 w-6 mr-2 rounded-full"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="white"
-                        >
-                            <path d="M22.675 0h-21.35C.596 0 0 .595 0 1.326v21.348C0 23.405.596 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.656-4.788 1.324 0 2.463.098 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.315h3.588l-.467 3.622h-3.121V24h6.116C23.405 24 24 23.405 24 22.675V1.326C24 .595 23.405 0 22.675 0z" />
+                    <button className="flex gap-2 items-center bg-[#0099fa] text-white  rounded-lg  px-6 py-2 text-sm font-medium outline-none  ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                         </svg>
-                        <span>Facebook</span>
+                        <span class="">Facebook</span>
                     </button>
 
-                    <button className="flex items-center bg-white text-gray-500 border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800  + focus:outline-none  ">
+                    <button className="flex items-center bg-[#f0f0f0] text-gray-500  rounded-lg  px-6 py-2 text-sm font-medium outline-none  ">
                         <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="-0.5 0 48 48" version="1.1"> <title>Google-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-401.000000, -860.000000)"> <g id="Google" transform="translate(401.000000, 860.000000)"> <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" id="Fill-1" fill="#FBBC05"> </path> <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" id="Fill-2" fill="#EB4335"> </path> <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" id="Fill-3" fill="#34A853"> </path> <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" id="Fill-4" fill="#4285F4"> </path> </g> </g> </g> </svg>
                         <span>Google</span>
                     </button>
