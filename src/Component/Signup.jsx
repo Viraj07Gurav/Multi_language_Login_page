@@ -34,19 +34,50 @@ function Signup() {
             </div>
             <div className='w-full'>
                 <div className='p-2'>
-                    <Input type='email' variant="standard" label={t('email')} name='email' required className='p-1 ' />
+                    <div class="flex items-center  ">
+                        <div class="relative w-full">
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder=""
+                                class="w-full border-b border-gray-300 py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit"
+                            />
+                            <label
+                                for="username"
+                                class="absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm"
+                            >
+                               {t('email')} <span className='text-blue-400'>*</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div className='p-2'>
-                    <Input variant="standard" label={t('password')} required name='password' className='py-2 ' />
-                </div>
+                <div class="flex items-center  ">
+                        <div class="relative w-full">
+                            <input
+                                id="username"
+                                name="username"
+                                type="password"
+                                placeholder=""
+                                className="w-full border-b border-gray-300 py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit"
+                            />
+                            <label
+                                for="password"
+                                className="absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm"
+                            >
+                               {t('password')} <span className='text-blue-400'>*</span>
+                            </label>
+                        </div>
+                    </div>                </div>
             </div>
 
-            <div className='flex flex-col justify-between items-center pb-2'>
+            <div className='flex flex-col justify-between items-center pb-2 mt-2'>
                 <div className='flex flex-col justify-between  items-center md:flex-row md:gap-20 lg:gap-20'>
-                    <label className='text-[#758b9d] text-sm'>
-                        <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500" />{t("Remember_me")}
+                    <label className='text-[#758b9d] text-sm '>
+                        <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500 " />&nbsp;{t("Remember_me")}
                     </label>
-                    <a className='py-4 flex underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#'><span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span>&nbsp; {t('recovery')}</a>
+                    <a className='py-4 text-sm flex underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#'><span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span>&nbsp; {t('recovery')}</a>
                 </div>
                 <button className='text-white bg-blue-500 w-60 h-10 rounded-[10px] bg-linear-to-r from-[#0099fa] to-[#002ed9] mt-5'>{t('signIn_btn')}</button>
             </div>

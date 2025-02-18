@@ -17,7 +17,7 @@ function App() {
       
       <div className="flex flex-col h-auto w-full max-w-md mx-auto ">
         <div className=''>
-          <div className='pb-10'><Header/></div>
+          <div className='pb-2 lg:pb-10 md:pb-8'><Header/></div>
         
         <Signup/>
         <div className='pt-5'>

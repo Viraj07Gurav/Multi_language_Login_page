@@ -531,6 +531,7 @@ i18n.use(initReactI18next).init({
                 "signIn_btn": "साइन इन",
                 "login": "लॉगिन करें",
                 "email": "ईमेल",
+                "login_with": "या लॉगिन करें",
                 "password": "पासवर्ड",
                 "Remember_me": "मुझे याद रखें",
                 "recovery": "पासवर्ड पुनर्प्राप्ति",
