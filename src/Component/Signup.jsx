@@ -7,7 +7,7 @@ function Signup() {
     const { t } = useTranslation();
 
     return (
-        <div className='bg-[#ffffff] p-4 rounded-2xl md:px-15'>
+        <div className='bg-[#ffffff] p-4 rounded-2xl md:px-8'>
             <div className='flex flex-col justify-center  items-center '>
                 <div className='flex justify-center items-center  p-0 m-0 gap-0'>
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="po-logo po-logo-color" clip-rule="evenodd" viewBox="0 0 90 55" width="30%" height="50" >
@@ -26,9 +26,9 @@ function Signup() {
                     </svg>
                     <p className='font-medium text-xl text-[#1e385b]'>Trade</p>
                 </div>
-                <h2 className='font-bold text-3xl py-3'>{t('signup_title')}</h2>
+                <h2 className='font-semibold     text-3xl py-3'>{t('signup_title')}</h2>
                 <div className='mb-3 flex flex-col justify-center  items-center md:flex-row gap-3'>
-                    <p className='text-[#535c6d]'>{t('signup_description')}</p>
+                    <p className='text-[#535c6d]'>{t('signup_description')}?</p>
                     <a href="" className='text-[#1e385b] underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800'>{t('Registration')}</a>
                 </div>
             </div>
@@ -47,7 +47,7 @@ function Signup() {
                                 for="username"
                                 class="absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm"
                             >
-                                {t('email')} <span className='text-blue-400'>*</span>
+                                {t('email')} <span className=''>*</span>
                             </label>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ function Signup() {
                                 for="password"
                                 className="absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm"
                             >
-                                {t('password')} <span className='text-blue-400'>*</span>
+                                {t('password')} <span className=''>*</span>
                             </label>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ function Signup() {
                         <span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span> &nbsp;&nbsp;
                    {t('recovery')}</a>
                 </div>
-                <button className='text-white bg-blue-500 w-72 h-12 rounded-[10px] bg-linear-to-r from-[#0099fa] to-[#002ed9] mt-5'>{t('signIn_btn')}</button>
+                <button className='text-white font-semibold bg-blue-500 w-72 h-12 rounded-[10px] bg-linear-to-r from-[#0099fa] to-[#002ed9] mt-5'>{t('signIn_btn')}</button>
             </div>
             <div className='flex  flex-col justify-center items-center py-6 '>
                 <label htmlFor="" className='mb-4 text-[#535c6d]'>{t('login_with')}</label>

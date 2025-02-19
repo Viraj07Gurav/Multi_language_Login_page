@@ -9,10 +9,10 @@ function Header() {
     const { t } = useTranslation(); // Hook to use translations
     return (
         <div>
-            <div className='flex justify-between p-3 h-15'>
+            <div className='flex justify-between py-3 px-0 h-15'>
                 <div className='flex'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 18l-6-6l6-6"/></svg>
-                    <a href="" className='font-nunito underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800'>{t('go_to_home')}</a>
+                    <a href="" style={{ fontFamily: 'Nunito, sans-serif' }} className='font-nunito underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800 '>{t('go_to_home')}</a>
                 </div>
                 <div className='flex justify-between'>
 

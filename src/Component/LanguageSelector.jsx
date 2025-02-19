@@ -44,7 +44,7 @@ function LanguageSelector() {
     <div className="relative inline-block text-left">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center px-4 text-[#1e385b] "
+        className="flex items-center px-1 text-[#1e385b] "
       >
         
         {languages.find(lang => lang.code === i18n.language)?.name || 'English'}
