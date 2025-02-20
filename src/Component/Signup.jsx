@@ -9,7 +9,7 @@ function Signup() {
     const{color,buttonBg,buttonTextColor}=useTheme()
 
     return (
-        <div className={`${color} bg-[#ffffff] p-4 rounded-2xl md:px-8`}>
+        <div className={`${color} bg-[#ffffff] p-4 mx-5 rounded-2xl md:px-8 md:mx-0`}>
             <div className='flex flex-col justify-center  items-center '>
                 <div className='flex justify-center items-center  p-0 m-0 gap-0'>
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="po-logo po-logo-color" clip-rule="evenodd" viewBox="0 0 90 55" width="30%" height="50" >
