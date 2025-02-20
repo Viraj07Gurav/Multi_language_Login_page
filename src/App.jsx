@@ -7,16 +7,23 @@ import Signup from './Component/Signup'
 import Footer from './Component/Footer'
 import '../src/index.css'
 import '../src/Component/i18n/i18n'
+import { ThemeProvider,useTheme } from './Component/Context/ThemeContext'
+import ColorSwitcher from './Component/ColorSwitcher'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
+
+  
 
   return (
-    <>
-     <div className="flex flex-col h-screen ">
+    
+    <ThemeProvider>
+     <div className={` flex flex-col h-screen `}>
       
       <div className="flex flex-col h-auto w-full max-w-lg mx-auto ">
         <div className=''>
+          <ColorSwitcher/>
           <div className='pb-2 lg:pb-10 md:pb-8'><Header/></div>
         
         <Signup/>
@@ -27,7 +34,8 @@ function App() {
        </div>
       </div>
       </div>
-    </>
+      </ThemeProvider>
+    
   )
 }
 

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { Input } from "@material-tailwind/react";
 import { useTranslation } from 'react-i18next';
+import { useTheme } from './Context/ThemeContext';
 
 function Signup() {
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
+    const{color}=useTheme()
 
     return (
-        <div className='bg-[#ffffff] p-4 rounded-2xl md:px-8'>
+        <div className={`${color} bg-[#ffffff] p-4 rounded-2xl md:px-8`}>
             <div className='flex flex-col justify-center  items-center '>
                 <div className='flex justify-center items-center  p-0 m-0 gap-0'>
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" class="po-logo po-logo-color" clip-rule="evenodd" viewBox="0 0 90 55" width="30%" height="50" >
@@ -34,7 +36,7 @@ function Signup() {
             </div>
             <div className='w-full'>
                 <div className='p-2'>
-                    <div class="flex items-center  ">
+                    <div class=" ">  {/*flex items-center */}
                         <div class="relative w-full">
                             <input
                                 id="email"
@@ -53,7 +55,7 @@ function Signup() {
                     </div>
                 </div>
                 <div className='p-2'>
-                    <div class="flex items-center  ">
+                    <div class="  ">
                         <div class="relative w-full">
                             <input
                                 id="username"
