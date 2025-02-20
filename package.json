@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Viraj07Gurav.github.io/Login_page",
+  "homepage": "https://Viraj07Gurav.github.io/Multi_language_Login_page",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
