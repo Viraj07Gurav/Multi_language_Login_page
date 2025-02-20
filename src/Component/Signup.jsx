@@ -6,7 +6,7 @@ import { useTheme } from './Context/ThemeContext';
 function Signup() {
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
-    const{color}=useTheme()
+    const{color,buttonBg,buttonTextColor}=useTheme()
 
     return (
         <div className={`${color} bg-[#ffffff] p-4 rounded-2xl md:px-8`}>
@@ -84,12 +84,12 @@ function Signup() {
                         <span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span> &nbsp;&nbsp;
                    {t('recovery')}</a>
                 </div>
-                <button className='text-white font-semibold bg-blue-500 w-72 h-12 rounded-[10px] bg-linear-to-r from-[#0099fa] to-[#002ed9] mt-5'>{t('signIn_btn')}</button>
+                <button className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('signIn_btn')}</button>
             </div>
             <div className='flex  flex-col justify-center items-center py-6 '>
                 <label htmlFor="" className='mb-4 text-[#535c6d]'>{t('login_with')}</label>
                 <div className='flex justify-center gap-4'>
-                    <button className="flex w-34 gap-2 items-center bg-[#0099fa] text-white  rounded-lg  px-6 py-2 text-sm font-medium outline-none  ">
+                    <button className={`flex w-34 gap-2 items-center ${buttonBg} text-white  rounded-lg  px-6 py-2 text-sm font-medium outline-none  `}>
                         <svg className='h-4' xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                             <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                         </svg>
