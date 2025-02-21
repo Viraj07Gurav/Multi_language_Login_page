@@ -11,11 +11,11 @@ export default function ColorSwitcher() {
     <div className="relative flex items-center gap-3">
       {/* Color Buttons (Left Side) - Shown Only When `showColors` is true */}
       {showColors && (
-        <div className="absolute left-[-130px] flex gap-2">
+        <div className="absolute left-[-100px] md:left-[-130px] flex gap-2">
           {colors.map((c) => (
             <button
               key={c}
-              className={`${c} text-white px-2 py-2 rounded-full w-6 h-6 border border-gray-800`}
+              className={`${c} text-white px-2  md:px-2 py-2 rounded-full w-4 h-4 md:w-6 md:h-6 border border-gray-800`}
               onClick={() => Changetheme(c)}
             ></button>
           ))}
