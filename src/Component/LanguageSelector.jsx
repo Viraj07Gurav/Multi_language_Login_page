@@ -1,3 +1,4 @@
+import { useTheme } from '../Component/Context/ThemeContext';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaGlobe } from 'react-icons/fa';
@@ -34,10 +35,15 @@ const languages = [
 function LanguageSelector() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+const{color,buttonColor,setIsRtl}=  useTheme();
 
+
+const [inputDir, setInputDir] = useState('ltr');
+
+const rtlLanguages = ['ar', 'fa', 'ur', 'he'];
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    setIsOpen(false);
+    setIsRtl(rtlLanguages.includes(lng));
   };
 
   return (
@@ -52,12 +58,12 @@ function LanguageSelector() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-70 bg-white  rounded-lg shadow-lg p-2 grid grid-cols-2 z-10 md:grid-cols-3">
+        <div className={`absolute right-0 mt-2 w-70 ${color}  rounded-lg shadow-lg p-2 grid grid-cols-2 z-100 md:grid-cols-3`}>
           {languages.map(lang => (
             <button
               key={lang.code}
               onClick={() => changeLanguage(lang.code)}
-              className="p-2 text-sm hover:bg-gray-100 rounded-md"
+              className={`p-2 text-sm hover:bg-gray-100 rounded-md`}
             >
               {lang.name}
             </button>

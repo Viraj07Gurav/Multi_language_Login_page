@@ -6,7 +6,7 @@ i18n.use(initReactI18next).init({
         en: {
             translation: {
                 "signup_title": "Sign In",
-                "signup_description": "Not registered yet?",
+                "signup_description": "Not registered yet??",
                 "Registration": "Registration",
                 "login": "Login",
                 "email": "Email",
@@ -34,7 +34,7 @@ i18n.use(initReactI18next).init({
         ru: { translation:
             {
                 "signup_title": "Войти",
-                "signup_description": "Вы еще не зарегистрированы?",
+                "signup_description": "Вы еще не зарегистрированы??",
                 "Registration": "Регистрация",
                 "signIn_btn": "Войти",
                 "login": "Логин",
@@ -61,7 +61,7 @@ i18n.use(initReactI18next).init({
         pt: { translation: 
             {
                 "signup_title": "Entrar",
-                "signup_description": "Ainda não está registrado?",
+                "signup_description": "Ainda não está registrado??",
                 "Registration": "Registro",
                 "signIn_btn": "Entrar",
                 "login": "Login",
@@ -87,7 +87,7 @@ i18n.use(initReactI18next).init({
          },
         es: { translation: {
             "signup_title": "Iniciar sesión",
-            "signup_description": "¿Aún no estás registrado?",
+            "signup_description": "¿Aún no estás registrado??",
             "Registration": "Registro",
             "signIn_btn": "Iniciar sesión",
             "login": "Iniciar sesión",
@@ -112,7 +112,7 @@ i18n.use(initReactI18next).init({
          },
         it: { translation: {
             "signup_title": "Accedi",
-            "signup_description": "Non sei ancora registrato?",
+            "signup_description": "Non sei ancora registrato??",
             "Registration": "Registrazione",
             "signIn_btn": "Accedi",
             "login": "Accedi",
@@ -137,7 +137,7 @@ i18n.use(initReactI18next).init({
          },
         pl: { translation: {
             "signup_title": "Zaloguj się",
-            "signup_description": "Nie masz jeszcze konta?",
+            "signup_description": "Nie masz jeszcze konta??",
             "Registration": "Rejestracja",
             "signIn_btn": "Zaloguj się",
             "login": "Logowanie",
@@ -162,7 +162,7 @@ i18n.use(initReactI18next).init({
          },
         id: { translation: {
             "signup_title": "Masuk",
-            "signup_description": "Belum terdaftar?",
+            "signup_description": "Belum terdaftar??",
             "Registration": "Pendaftaran",
             "signIn_btn": "Masuk",
             "login": "Login",
@@ -187,7 +187,7 @@ i18n.use(initReactI18next).init({
          },
         fr: { translation: {
             "signup_title": "Se connecter",
-            "signup_description": "Pas encore inscrit?",
+            "signup_description": "Pas encore inscrit??",
             "Registration": "Inscription",
             "login": "Connexion",
             "email": "Email",
@@ -213,7 +213,7 @@ i18n.use(initReactI18next).init({
          },
         th: { translation: {
             "signup_title": "เข้าสู่ระบบ",
-            "signup_description": "ยังไม่ได้ลงทะเบียน?",
+            "signup_description": "ยังไม่ได้ลงทะเบียน??",
             "Registration": "ลงทะเบียน",
             "login": "เข้าสู่ระบบ",
             "email": "อีเมล",
@@ -239,7 +239,7 @@ i18n.use(initReactI18next).init({
          },
         vi: { translation: {
             "signup_title": "Đăng nhập",
-            "signup_description": "Chưa đăng ký?",
+            "signup_description": "Chưa đăng ký??",
             "Registration": "Đăng ký",
             "login": "Đăng nhập",
             "email": "Email",
@@ -265,7 +265,7 @@ i18n.use(initReactI18next).init({
          },
         ar: { translation: {
             "signup_title": "تسجيل الدخول",
-            "signup_description": "لم تسجل بعد؟",
+            "signup_description": "لم تسجل بعد؟؟",
             "Registration": "التسجيل",
             "login": "تسجيل الدخول",
             "email": "البريد الإلكتروني",
@@ -291,7 +291,7 @@ i18n.use(initReactI18next).init({
          },
         ms: { translation: {
             "signup_title": "Log Masuk",
-            "signup_description": "Belum mendaftar lagi?",
+            "signup_description": "Belum mendaftar lagi??",
             "Registration": "Pendaftaran",
             "login": "Log Masuk",
             "email": "Emel",
@@ -343,7 +343,7 @@ i18n.use(initReactI18next).init({
          },
         tr: { translation: {
             "signup_title": "Giriş Yap",
-            "signup_description": "Henüz kayıt olmadınız mı?",
+            "signup_description": "Henüz kayıt olmadınız mı??",
             "Registration": "Kayıt Ol",
             "login": "Giriş Yap",
             "email": "E-posta",
@@ -395,7 +395,7 @@ i18n.use(initReactI18next).init({
          },
         ko: { translation: {
             "signup_title": "로그인",
-            "signup_description": "아직 등록하지 않으셨나요?",
+            "signup_description": "아직 등록하지 않으셨나요??",
             "Registration": "등록",
             "login": "로그인",
             "email": "이메일",
@@ -421,7 +421,7 @@ i18n.use(initReactI18next).init({
          },
         fa: { translation: {
             "signup_title": "ورود",
-            "signup_description": "هنوز ثبت‌نام نکرده‌اید؟",
+            "signup_description": "هنوز ثبت‌نام نکرده‌اید؟؟",
             "Registration": "ثبت‌نام",
             "login": "ورود",
             "email": "ایمیل",
@@ -447,7 +447,7 @@ i18n.use(initReactI18next).init({
          },
         sr: { translation: {
             "signup_title": "Prijavite se",
-            "signup_description": "Još niste registrovani?",
+            "signup_description": "Još niste registrovani??",
             "Registration": "Registracija",
             "login": "Prijava",
             "email": "Email",
@@ -473,7 +473,7 @@ i18n.use(initReactI18next).init({
          },
         ro: { translation: {
             "signup_title": "Autentificare",
-            "signup_description": "Nu te-ai înregistrat încă?",
+            "signup_description": "Nu te-ai înregistrat încă??",
             "Registration": "Înregistrare",
             "login": "Autentificare",
             "email": "Email",
@@ -499,7 +499,7 @@ i18n.use(initReactI18next).init({
          },
         hr: { translation: {
             "signup_title": "Prijava",
-            "signup_description": "Još niste registrirani?",
+            "signup_description": "Još niste registrirani??",
             "Registration": "Registracija",
             "login": "Prijavite se",
             "email": "Email",
@@ -526,7 +526,7 @@ i18n.use(initReactI18next).init({
         hi: {
             translation: {
                 "signup_title": "साइन इन",
-                "signup_description": "क्या आपने अभी तक पंजीकरण नहीं किया है?",
+                "signup_description": "क्या आपने अभी तक पंजीकरण नहीं किया है??",
                 "Registration": "पंजीकरण",
                 "signIn_btn": "साइन इन",
                 "login": "लॉगिन करें",
@@ -578,7 +578,7 @@ i18n.use(initReactI18next).init({
          },
         bn: { translation: {
             "signup_title": "সাইন ইন",
-            "signup_description": "এখনো রেজিস্টার করেননি?",
+            "signup_description": "এখনো রেজিস্টার করেননি??",
             "Registration": "রেজিস্ট্রেশন",
             "login": "লগইন",
             "email": "ইমেইল",
@@ -604,7 +604,7 @@ i18n.use(initReactI18next).init({
          },
         uk: { translation: {
             "signup_title": "Увійти",
-            "signup_description": "Ще не зареєстровані?",
+            "signup_description": "Ще не зареєстровані??",
             "Registration": "Реєстрація",
             "login": "Увійти",
             "email": "Електронна пошта",
@@ -630,7 +630,7 @@ i18n.use(initReactI18next).init({
          },
         fil: { translation:{
             "signup_title": "Mag-sign In",
-            "signup_description": "Hindi pa nakarehistro?",
+            "signup_description": "Hindi pa nakarehistro??",
             "Registration": "Pagpaparehistro",
             "login": "Mag-login",
             "email": "Email",
@@ -656,7 +656,7 @@ i18n.use(initReactI18next).init({
          },
         sw: { translation:{
             "signup_title": "Ingia",
-            "signup_description": "Bado haujasajiliwa?",
+            "signup_description": "Bado haujasajiliwa??",
             "Registration": "Usajili",
             "login": "Ingia",
             "email": "Barua pepe",

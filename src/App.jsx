@@ -23,7 +23,7 @@ function App() {
       
       <div className="flex flex-col h-auto w-full max-w-lg mx-auto ">
         <div className=''>
-          <ColorSwitcher/>
+         
           <div className='pb-2 lg:pb-10 md:pb-8'><Header/></div>
         
         <Signup/>
