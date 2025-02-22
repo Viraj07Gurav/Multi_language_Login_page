@@ -9,6 +9,8 @@ import '../src/index.css'
 import '../src/Component/i18n/i18n'
 import { ThemeProvider,useTheme } from './Component/Context/ThemeContext'
 import ColorSwitcher from './Component/ColorSwitcher'
+import Registration from './Component/Registration_page/Registration'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -19,14 +21,17 @@ function App() {
   return (
     
     <ThemeProvider>
+      <Router>
      <div className={` flex flex-col h-screen `}>
       
       <div className="flex flex-col h-auto w-full max-w-lg mx-auto ">
         <div className=''>
          
           <div className='pb-2 lg:pb-10 md:pb-8'><Header/></div>
-        
-        <Signup/>
+   <Routes>
+   <Route path="/" element={<Signup />} />
+   <Route path="/register" element={<Registration />} />
+       </Routes>
         <div className='pt-5'>
         <Footer/>
         </div>
@@ -34,6 +39,7 @@ function App() {
        </div>
       </div>
       </div>
+      </Router>
       </ThemeProvider>
     
   )

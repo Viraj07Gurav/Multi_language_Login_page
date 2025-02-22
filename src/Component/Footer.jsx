@@ -19,8 +19,8 @@ const Footer = () => {
                 <div className="flex justify-center items-center ">
                     <p className="text-[#758b9d] font-nunito">Copyright &copy;2025 PO TRADE PO TRADE</p>&nbsp;
                     <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-    <text x="8" y="27" font-family="Arial" font-size="20" fill="#758b9d" font-weight="500">21+</text>
-</svg>
+                        <text x="8" y="27" font-family="Arial" font-size="20" fill="#758b9d" font-weight="500">21+</text>
+                    </svg>
 
 
 
