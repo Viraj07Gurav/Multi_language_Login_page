@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { Input } from "@material-tailwind/react";
 import { useTranslation } from 'react-i18next';
 import { useTheme } from './Context/ThemeContext';
+import { Eye, EyeOff } from "lucide-react";
 
 function Signup() {
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
-    const{color,buttonBg,buttonTextColor,buttonColor, isRtl}=useTheme()
+    const { color, buttonBg, buttonTextColor, buttonColor, isRtl } = useTheme()
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className={`${color} bg-[#ffffff] p-4 mx-5 rounded-2xl md:px-8 md:mx-0`}>
@@ -37,54 +39,65 @@ function Signup() {
             <div className='w-full'>
                 <div className='p-2'>
                     <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
-                        <div class="relative w-full" >
-                            <input 
+                        <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
+                            <input
                                 id="email"
                                 name="email"
                                 type="email"
                                 placeholder=""
                                 class={` ${isRtl ? "text-right" : "text-left"} w-full border-b border-gray-300 py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
                             />
-                            <label 
+                            <label
                                 for="username"
                                 class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
                             >
                                 {t('email')} <span className=''>*</span>
                             </label>
+
                         </div>
                     </div>
                 </div>
                 <div className='p-2'>
                     <div class="  " dir={isRtl ? "rtl" : "ltr"}>
-                        <div class="relative w-full">
-                            <input
-                                id="username"
-                                name="username"
-                                type="password"
-                                placeholder=""
-                                className={` ${isRtl ? "text-right" : "text-left"} w-full border-b border-gray-300 py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
-                            />
-                            <label 
-                                for="password"
-                                className={`absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                        <div class="relative w-full " dir={isRtl ? "rtl" : "ltr"}>
+                            <div>
+                                <input
+                                    id="username"
+                                    name="username"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder=""
+                                    className={` ${isRtl ? "text-right" : "text-left"} w-full border-b border-gray-300 py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
+                                />
+                                <label
+                                    for="password"
+                                    className={`absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                >
+                                    {t('password')} <span className=''>*</span>
+                                </label>
+                            </div>
+                            <button
+                                dir={isRtl ? "rtl" : "ltr"}
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
                             >
-                                {t('password')} <span className=''>*</span>
-                            </label>
+                                {showPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className='flex flex-col justify-between items-center pb-2 mt-2 w-full px-2'>
-            <div className={`flex flex-col items-center md:flex-row md:justify-between lg:justify-between w-full `} dir={isRtl ? "rtl" : "ltr"}>
-                <div >
-                    <label className={`text-[#758b9d] text-sm flex ${isRtl ? "flex-row-reverse gap-1" : ""}`} dir={isRtl ? "rtl" : "ltr"}>
-                        <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500 w-auto " />&nbsp;{t("Remember_me")}
-                    </label>
+                <div className={`flex flex-col items-center md:flex-row md:justify-between lg:justify-between w-full `} dir={isRtl ? "rtl" : "ltr"}>
+                    <div >
+                        <label className={`text-[#758b9d] text-sm flex ${isRtl ? "flex-row-reverse gap-1" : ""}`} dir={isRtl ? "rtl" : "ltr"}>
+                            <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500 w-auto " />&nbsp;{t("Remember_me")}
+                        </label>
                     </div>
                     <a className='py-4 text-sm flex underline decoration-1 decoration-blue-400 underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#'>
                         <span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span> &nbsp;&nbsp;
-                   {t('recovery')}</a>
+                        {t('recovery')}</a>
                 </div>
                 <button className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('signIn_btn')}</button>
             </div>

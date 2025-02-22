@@ -15,7 +15,7 @@ export function ThemeProvider({children}){
     const [isRtl, setIsRtl] = useState(false); // Add RTL state
 
     const colorMap = {
-        "bg-red-100": { text: "text-white", buttonBg: "bg-linear-to-r from-[#eab9a9] to-[#c14921]", buttonText: "text-white",buttonColor:"bg-[#de9881]" },
+        "bg-red-200": { text: "text-white", buttonBg: "bg-linear-to-r from-[#eab9a9] to-[#c14921]", buttonText: "text-white",buttonColor:"bg-[#de9881]" },
         "bg-blue-100": { text: "text-white", buttonBg: "bg-linear-to-r from-[#a3c3ef] to-[#4a7ec0]", buttonText: "text-black" ,buttonColor:"bg-blue-300"},
         "bg-green-100": { text: "text-black", buttonBg: "bg-linear-to-r from-[#acefa3] to-[#4fc128]", buttonText: "text-white" ,buttonColor:"bg-[#a6e89f]"},
         "bg-yellow-100": { text: "text-red-800", buttonBg: "bg-linear-to-r from-[#e4d98f] to-[#d7b02e]", buttonText: "text-black" ,buttonColor:"bg-[#e4d98f]"},

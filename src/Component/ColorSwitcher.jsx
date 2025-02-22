@@ -5,7 +5,7 @@ export default function ColorSwitcher() {
   const { Changetheme } = useTheme();
   const [showColors, setShowColors] = useState(false); // Toggle state
 
-  const colors = ["bg-red-100", "bg-blue-100", "bg-green-100", "bg-yellow-100"];
+  const colors = ["bg-red-200", "bg-blue-100", "bg-green-100", "bg-yellow-100"];
 
   return (
     <div className="relative flex items-center gap-3">
