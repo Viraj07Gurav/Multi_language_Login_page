@@ -47,7 +47,7 @@ function Signup() {
 
     const validation=()=>{
         if(!formData.email.trim()&&!formData.password){
-            toast.error("all field required.")
+            toast.error("All field required.")
             return false;
         }
         if(!formData.email.trim()){
@@ -79,7 +79,7 @@ function Signup() {
       
         if(validation()){
             if((storedData.email === formData.email && storedData.password === formData.password)){
-                toast.success("Logged in successfully!");
+                toast.success("Login in successfully!");
             }
             else if((storedData.email==formData.email)&& (storedData.password!=formData.password)){
                 toast.error("Invalid  password !");

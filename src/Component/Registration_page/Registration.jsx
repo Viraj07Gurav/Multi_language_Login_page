@@ -125,7 +125,7 @@ function Registration() {
                     <Link to="/" className={`text-[#1e385b] underline decoration-1 ${underline} underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800`}>{t("registration.sign_in")}</Link>
                 </div>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit}>
             <div className='w-full'>
                 <div className='p-2'>
                     <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
@@ -238,7 +238,7 @@ function Registration() {
                     </div>
                 </div>
             </div>
-            </form>
+            
             <div className='flex flex-col justify-start items-center pb-2 mt-2 w-full px-2'>
                 {/* <div className={`flex flex-col items-center md:flex-row md:justify-between lg:justify-between w-full `} dir={isRtl ? "rtl" : "ltr"}>
                     <div className=''>
@@ -255,6 +255,8 @@ function Registration() {
                 </div> */}
                 <button type='submit' className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('registration.sign_up_btn')}</button>
             </div>
+
+            </form>
             <div className='flex  flex-col justify-center items-center py-6 '>
                 <label htmlFor="" className='mb-4 text-[#535c6d]'>{t('registration.sign_up_with')}</label>
                 <div className='flex justify-center gap-4' >
