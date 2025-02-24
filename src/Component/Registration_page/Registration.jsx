@@ -193,7 +193,7 @@ function Registration() {
                             <button
                                 dir={isRtl ? "rtl" : "ltr"}
                                 type="button"
-                                onClick={() => setShowConfirmPassword(!showPassword)}
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                 className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
                             >
                                 {showConfirmPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
