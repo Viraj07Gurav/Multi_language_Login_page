@@ -87,6 +87,9 @@ function Signup() {
             else if((storedData.email!=formData.email)&&(storedData.password==formData.password)){
                 toast.error("Invalid email")
             }
+            else if((storedData.email!=formData.email)&&(storedData.password!=formData.password)){
+                toast.error("Invalid email and password")
+            }
 
         }
         if(!storedData){
