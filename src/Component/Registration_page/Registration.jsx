@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Input } from "@material-tailwind/react";
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../Context/ThemeContext';
@@ -9,11 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+    const navigate = useNavigate();  // Initialize navigation
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
-    const { color, buttonBg, buttonTextColor, buttonColor, isRtl, underline, border,textColor} = useTheme()
+    const { color, buttonBg, buttonTextColor, buttonColor, isRtl, underline, border, textColor } = useTheme()
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -30,7 +32,7 @@ function Registration() {
         password: false,
         confirmPassword: false,
     });
-    console.log("setvalidation",validFields.userName);
+    console.log("setvalidation", validFields.userName);
 
     const login = useGoogleLogin({
         onSuccess: (tokenResponse) => {
@@ -54,52 +56,52 @@ function Registration() {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-    // Update form data safely using functional update
-    setFormData(prevFormData => ({
-        ...prevFormData,
-        [name]: value
-    }));
+        // Update form data safely using functional update
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]: value
+        }));
 
-    // Update validation state safely using functional update
-    setValidFields(prevValidFields => ({
-        ...prevValidFields,
-        [name]: validateField(name, value)
-    }));
+        // Update validation state safely using functional update
+        setValidFields(prevValidFields => ({
+            ...prevValidFields,
+            [name]: validateField(name, value)
+        }));
 
-    
-};
-        // switch (name) {
-        //     case "userName":
-        //         setValidFields({ ...validFields, userName: value.trim() !== "" });
-        //       break;
-        //     case "email":
-        //         setValidFields({ ...validFields, email: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(value) });
-        //       break;
-        //     case "password":
-        //         setValidFields({ ...validFields, password: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
-        //       break;
-        //       case "confirmPassword":
-        //         setValidFields({ ...validFields, confirmPassword: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
-        //       break;
-        //     default:
-        //       break;
-        //   }
-       
+
+    };
+    // switch (name) {
+    //     case "userName":
+    //         setValidFields({ ...validFields, userName: value.trim() !== "" });
+    //       break;
+    //     case "email":
+    //         setValidFields({ ...validFields, email: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(value) });
+    //       break;
+    //     case "password":
+    //         setValidFields({ ...validFields, password: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+    //       break;
+    //       case "confirmPassword":
+    //         setValidFields({ ...validFields, confirmPassword: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+    //       break;
+    //     default:
+    //       break;
+    //   }
+
     //     localStorage.setItem("formData", JSON.stringify(updateformData));
 
     // };
-    
+
     const validateForm = () => {
         if (!formData.userName.trim() || !formData.email.trim() || !formData.password || !formData.confirmPassword) {
-               toast.error("All field required.")
+            toast.error("All field required.")
             return false;
 
         }
         if (!formData.userName.trim()) {
             toast.error("Username is required.");
             return false;
-        }else{
-                
+        } else {
+
         }
         if (formData.userName.length > 20) {
             toast.error("Username cannot exceed 20 characters.");
@@ -122,42 +124,51 @@ function Registration() {
         if (!formData.confirmPassword) {
             toast.error("Confirm Password is required.");
             return false;
-        } else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.confirmPassword)) {
+        }
+        else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.confirmPassword)) {
             toast.error("Password must be at least 8 characters, include an uppercase letter, a number, and a special character[@ or #].");
             return false;
         }
-        if (formData.password !== formData.confirmPassword) {
+        // if(formData.password!=(! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.confirmPassword))){
+        //     toast.error("Password do  not")
+        // }
+        if (formData.password != formData.confirmPassword) {
             toast.error("Passwords do not match.");
             return false;
         }
 
         return true;
     };
-   
+
     const validateField = (name, value) => {
         switch (name) {
             case "userName":
                 return value.trim() !== "";
-            
+
             case "email":
                 return /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(value)
-              
+
             case "password":
                 // setValidFields({ ...validFields, password: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
-                return /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) 
-            
-              case "confirmPassword":
+                return /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value)
+
+            case "confirmPassword":
                 // setValidFields({ ...validFields, confirmPassword: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
                 return /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value)
-         
+
             default:
-              break;
+                break;
         }
     };
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
             toast.success("Form submitted successfully!");
+            setTimeout(() => {
+                navigate("/");  // Redirect to Sign-In page
+            }, 2000); // Wait 2 seconds to show success message
+
+
         }
     };
 
@@ -196,7 +207,7 @@ function Registration() {
                     <div className='p-2'>
                         <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
                             <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
-                                
+
                                 <input
                                     id="userName"
                                     name="userName"
@@ -206,16 +217,16 @@ function Registration() {
                                     onChange={handleChange}
                                     class={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
                                 />
-                                
+
                                 <label
                                     for="username"
                                     class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
                                 >
-                                     {t('registration.username')} <span className=''>*</span>
-                                {validFields.userName && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
-                                    
+                                    {t('registration.username')} <span className=''>*</span>
+                                    {validFields.userName && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
+
                                 </label>
-                               
+
 
                             </div>
                         </div>
@@ -240,7 +251,7 @@ function Registration() {
                                     {validFields.email && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
 
                                 </label>
-                                
+
 
                             </div>
                         </div>
@@ -267,7 +278,7 @@ function Registration() {
                                         {validFields.password && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
 
                                     </label>
-                                   
+
                                 </div>
                                 <button
                                     dir={isRtl ? "rtl" : "ltr"}

@@ -203,9 +203,9 @@ function Signup() {
                             <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500 w-auto " />&nbsp;{t("Remember_me")}
                         </label>
                     </div>
-                    <a className={`py-4 text-sm flex underline decoration-1 ${underline} underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#' `}>
+                    <Link to="/password" className={`py-4 text-sm flex underline decoration-1 ${underline} underline-offset-5 text-[#1e385b] hover:no-underline transition-all duration-800' href='#' `}>
                         <span className='rotate-80 '><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 26 26"><g fill="none" stroke="#47a1d6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9a9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></g></svg> </span> &nbsp;&nbsp;
-                        {t('recovery')}</a>
+                        {t('recovery')}</Link>
                 </div>
                 <button type='sumbit' className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('signIn_btn')}</button>
             </div>

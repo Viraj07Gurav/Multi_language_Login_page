@@ -11,6 +11,7 @@ import { ThemeProvider, useTheme } from './Component/Context/ThemeContext'
 import ColorSwitcher from './Component/ColorSwitcher'
 import Registration from './Component/Registration_page/Registration'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PasswordRecovery from './Component/PasswordRecovery/PasswordRecovery'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Signup />} />
                 <Route path="/register" element={<Registration />} />
+                <Route path="/password" element={<PasswordRecovery/>}/>
               </Routes>
               <div className='pt-5'>
                 <Footer />

@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import PasswordRecovery from '../PasswordRecovery/PasswordRecovery';
 
 i18n.use(initReactI18next).init({
     resources: {
@@ -41,6 +42,12 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Confirm Password ",
                     "sign_up_btn": "SIGN UP",
                     "sign_up_with": "Or sign up with"
+                },
+                "password_recover": {
+                    "title": "Password Recovery",
+                    "description": "Enter your registered email address and we will send you an email with instructions on how to reset your PO TRADE account password.",
+                    "restore_button": "RESTORE",
+                    "back_to_login": "Back to Login"
                 }
 
             }
@@ -82,7 +89,15 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Подтвердите пароль",
                     "sign_up_btn": "ЗАРЕГИСТРИРОВАТЬСЯ",
                     "sign_up_with": "Или зарегистрируйтесь через"
+                },
+                password_recover: {
+                    "title": "Восстановление пароля",
+                    "description": "Введите зарегистрированный адрес электронной почты, и мы отправим вам письмо с инструкциями по сбросу пароля вашей учетной записи PO TRADE.",
+                    "email_label": "Электронная почта *",
+                    "restore_button": "ВОССТАНОВИТЬ",
+                    "back_to_login": "Назад к входу"
                 }
+
 
             }
 
@@ -122,6 +137,12 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Confirmar senha",
                     "sign_up_btn": "CADASTRAR-SE",
                     "sign_up_with": "Ou cadastre-se com"
+                },
+                "password_recover": {
+                    "title": "Recuperação de senha",
+                    "description": "Digite seu endereço de e-mail registrado e enviaremos um e-mail com instruções sobre como redefinir a senha da sua conta PO TRADE.",
+                    "restore_button": "RESTAURAR",
+                    "back_to_login": "Voltar para o login"
                 }
 
             }
@@ -161,6 +182,12 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Confirmar contraseña",
                     "sign_up_btn": "REGISTRARSE",
                     "sign_up_with": "O regístrate con"
+                },
+                "password_recover": {
+                    "title": "Recuperación de contraseña",
+                    "description": "Ingrese su dirección de correo electrónico registrada y le enviaremos un correo con instrucciones sobre cómo restablecer la contraseña de su cuenta PO TRADE.",
+                    "restore_button": "RESTAURAR",
+                    "back_to_login": "Volver al inicio de sesión"
                 }
 
             }
@@ -199,6 +226,12 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Conferma password",
                     "sign_up_btn": "ISCRIVITI",
                     "sign_up_with": "Oppure iscriviti con"
+                },
+                "password_recover": {
+                    "title": "Recupero password",
+                    "description": "Inserisci il tuo indirizzo email registrato e ti invieremo un'email con le istruzioni per reimpostare la password del tuo account PO TRADE.",
+                    "restore_button": "RIPRISTINA",
+                    "back_to_login": "Torna al login"
                 }
 
 
@@ -238,7 +271,13 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "Potwierdź hasło",
                     "sign_up_btn": "ZAREJESTRUJ SIĘ",
                     "sign_up_with": "Lub zarejestruj się przez"
-                }
+                },
+                "password_recover": {
+    "title": "Odzyskiwanie hasła",
+    "description": "Wprowadź swój zarejestrowany adres e-mail, a wyślemy Ci wiadomość z instrukcjami dotyczącymi resetowania hasła do konta PO TRADE.",
+    "restore_button": "PRZYWRÓĆ",
+    "back_to_login": "Wróć do logowania"
+  }
 
             }
         },
@@ -267,16 +306,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Pengungkapan Informasi",
                 "copyright": "Hak Cipta",
                 "registration": {
-    "registration": "Pendaftaran",
-    "already_registered": "Sudah terdaftar?",
-    "sign_in": "Masuk",
-    "username": "Nama pengguna",
-    "email": "Email",
-    "password": "Kata sandi",
-    "confirm_password": "Konfirmasi kata sandi",
-    "sign_up_btn": "DAFTAR",
-    "sign_up_with": "Atau daftar dengan"
-}
+                    "registration": "Pendaftaran",
+                    "already_registered": "Sudah terdaftar?",
+                    "sign_in": "Masuk",
+                    "username": "Nama pengguna",
+                    "email": "Email",
+                    "password": "Kata sandi",
+                    "confirm_password": "Konfirmasi kata sandi",
+                    "sign_up_btn": "DAFTAR",
+                    "sign_up_with": "Atau daftar dengan"
+                },
+                "password_recover": {
+    "title": "Pemulihan Kata Sandi",
+    "description": "Masukkan alamat email terdaftar Anda dan kami akan mengirimkan email dengan instruksi tentang cara mengatur ulang kata sandi akun PO TRADE Anda.",
+    "restore_button": "PULIHKAN",
+    "back_to_login": "Kembali ke Login"
+  }
 
             }
         },
@@ -306,16 +351,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Divulgation d'informations",
                 "copyright": "Droits d'auteur",
                 "registration": {
-    "registration": "Inscription",
-    "already_registered": "Déjà inscrit?",
-    "sign_in": "Se connecter",
-    "username": "Nom d'utilisateur",
-    "email": "E-mail",
-    "password": "Mot de passe",
-    "confirm_password": "Confirmer le mot de passe",
-    "sign_up_btn": "S'INSCRIRE",
-    "sign_up_with": "Ou inscrivez-vous avec"
-}
+                    "registration": "Inscription",
+                    "already_registered": "Déjà inscrit?",
+                    "sign_in": "Se connecter",
+                    "username": "Nom d'utilisateur",
+                    "email": "E-mail",
+                    "password": "Mot de passe",
+                    "confirm_password": "Confirmer le mot de passe",
+                    "sign_up_btn": "S'INSCRIRE",
+                    "sign_up_with": "Ou inscrivez-vous avec"
+                },
+                "password_recover": {
+    "title": "Récupération de mot de passe",
+    "description": "Entrez votre adresse e-mail enregistrée et nous vous enverrons un e-mail avec des instructions pour réinitialiser le mot de passe de votre compte PO TRADE.",
+    "restore_button": "RÉCUPÉRER",
+    "back_to_login": "Retour à la connexion"
+  }
 
             }
         },
@@ -345,16 +396,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "การเปิดเผยข้อมูล",
                 "copyright": "ลิขสิทธิ์",
                 "registration": {
-    "registration": "การลงทะเบียน",
-    "already_registered": "ลงทะเบียนแล้ว?",
-    "sign_in": "เข้าสู่ระบบ",
-    "username": "ชื่อผู้ใช้",
-    "email": "อีเมล",
-    "password": "รหัสผ่าน",
-    "confirm_password": "ยืนยันรหัสผ่าน",
-    "sign_up_btn": "ลงทะเบียน",
-    "sign_up_with": "หรือสมัครด้วย"
-}
+                    "registration": "การลงทะเบียน",
+                    "already_registered": "ลงทะเบียนแล้ว?",
+                    "sign_in": "เข้าสู่ระบบ",
+                    "username": "ชื่อผู้ใช้",
+                    "email": "อีเมล",
+                    "password": "รหัสผ่าน",
+                    "confirm_password": "ยืนยันรหัสผ่าน",
+                    "sign_up_btn": "ลงทะเบียน",
+                    "sign_up_with": "หรือสมัครด้วย"
+                },
+                "password_recover": {
+    "title": "กู้คืนรหัสผ่าน",
+    "description": "ป้อนที่อยู่อีเมลที่ลงทะเบียนของคุณ แล้วเราจะส่งอีเมลพร้อมคำแนะนำในการรีเซ็ตรหัสผ่านบัญชี PO TRADE ของคุณ",
+    "restore_button": "กู้คืน",
+    "back_to_login": "กลับไปที่เข้าสู่ระบบ"
+  }
 
             }
         },
@@ -384,16 +441,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Tiết lộ thông tin",
                 "copyright": "Bản quyền",
                 "registration": {
-    "registration": "Đăng ký",
-    "already_registered": "Đã có tài khoản?",
-    "sign_in": "Đăng nhập",
-    "username": "Tên người dùng",
-    "email": "Email",
-    "password": "Mật khẩu",
-    "confirm_password": "Xác nhận mật khẩu",
-    "sign_up_btn": "ĐĂNG KÝ",
-    "sign_up_with": "Hoặc đăng ký với"
-}
+                    "registration": "Đăng ký",
+                    "already_registered": "Đã có tài khoản?",
+                    "sign_in": "Đăng nhập",
+                    "username": "Tên người dùng",
+                    "email": "Email",
+                    "password": "Mật khẩu",
+                    "confirm_password": "Xác nhận mật khẩu",
+                    "sign_up_btn": "ĐĂNG KÝ",
+                    "sign_up_with": "Hoặc đăng ký với"
+                },
+                "password_recover": {
+    "title": "Khôi phục mật khẩu",
+    "description": "Nhập địa chỉ email đã đăng ký của bạn và chúng tôi sẽ gửi email hướng dẫn cách đặt lại mật khẩu tài khoản PO TRADE của bạn.",
+    "restore_button": "KHÔI PHỤC",
+    "back_to_login": "Quay lại đăng nhập"
+  }
 
             }
         },
@@ -423,16 +486,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "إفشاء المعلومات",
                 "copyright": "حقوق النشر",
                 "registration": {
-    "registration": "التسجيل",
-    "already_registered": "مسجل بالفعل؟",
-    "sign_in": "تسجيل الدخول",
-    "username": "اسم المستخدم",
-    "email": "البريد الإلكتروني",
-    "password": "كلمة المرور",
-    "confirm_password": "تأكيد كلمة المرور",
-    "sign_up_btn": "اشترك",
-    "sign_up_with": "أو اشترك باستخدام"
-}
+                    "registration": "التسجيل",
+                    "already_registered": "مسجل بالفعل؟",
+                    "sign_in": "تسجيل الدخول",
+                    "username": "اسم المستخدم",
+                    "email": "البريد الإلكتروني",
+                    "password": "كلمة المرور",
+                    "confirm_password": "تأكيد كلمة المرور",
+                    "sign_up_btn": "اشترك",
+                    "sign_up_with": "أو اشترك باستخدام"
+                },
+                "password_recover": {
+                    "title": "استعادة كلمة المرور",
+                    "description": "أدخل عنوان بريدك الإلكتروني المسجل وسنرسل لك بريدًا إلكترونيًا يحتوي على تعليمات حول كيفية إعادة تعيين كلمة مرور حساب PO TRADE الخاص بك.",
+                    "restore_button": "استعادة",
+                    "back_to_login": "العودة إلى تسجيل الدخول"
+                  }
 
             }
         },
@@ -462,16 +531,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Pendedahan Maklumat",
                 "copyright": "Hak Cipta",
                 "registration": {
-    "registration": "Pendaftaran",
-    "already_registered": "Sudah mendaftar?",
-    "sign_in": "Log masuk",
-    "username": "Nama pengguna",
-    "email": "E-mel",
-    "password": "Kata laluan",
-    "confirm_password": "Sahkan kata laluan",
-    "sign_up_btn": "DAFTAR",
-    "sign_up_with": "Atau daftar dengan"
-}
+                    "registration": "Pendaftaran",
+                    "already_registered": "Sudah mendaftar?",
+                    "sign_in": "Log masuk",
+                    "username": "Nama pengguna",
+                    "email": "E-mel",
+                    "password": "Kata laluan",
+                    "confirm_password": "Sahkan kata laluan",
+                    "sign_up_btn": "DAFTAR",
+                    "sign_up_with": "Atau daftar dengan"
+                },
+                "password_recover": {
+                    "title": "Pemulihan Kata Laluan",
+                    "description": "Masukkan alamat e-mel berdaftar anda dan kami akan menghantar e-mel dengan arahan tentang cara menetapkan semula kata laluan akaun PO TRADE anda.",
+                    "restore_button": "PULIHKAN",
+                    "back_to_login": "Kembali ke Log Masuk"
+                  }
 
             }
         },
@@ -501,16 +576,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "信息披露",
                 "copyright": "版权",
                 "registration": {
-    "registration": "注册",
-    "already_registered": "已经注册？",
-    "sign_in": "登录",
-    "username": "用户名",
-    "email": "电子邮件",
-    "password": "密码",
-    "confirm_password": "确认密码",
-    "sign_up_btn": "注册",
-    "sign_up_with": "或使用以下方式注册"
-}
+                    "registration": "注册",
+                    "already_registered": "已经注册？",
+                    "sign_in": "登录",
+                    "username": "用户名",
+                    "email": "电子邮件",
+                    "password": "密码",
+                    "confirm_password": "确认密码",
+                    "sign_up_btn": "注册",
+                    "sign_up_with": "或使用以下方式注册"
+                },
+                "password_recover": {
+                    "title": "密码恢复",
+                    "description": "输入您注册的电子邮件地址，我们将向您发送一封电子邮件，其中包含重置 PO TRADE 账户密码的说明。",
+                    "restore_button": "恢复",
+                    "back_to_login": "返回登录"
+                  }
 
             }
         },
@@ -540,16 +621,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Bilgi Açıklaması",
                 "copyright": "Telif Hakkı",
                 "registration": {
-    "registration": "Kayıt Ol",
-    "already_registered": "Zaten kayıtlı mısınız?",
-    "sign_in": "Giriş Yap",
-    "username": "Kullanıcı Adı",
-    "email": "E-posta",
-    "password": "Şifre",
-    "confirm_password": "Şifreyi Onayla",
-    "sign_up_btn": "KAYIT OL",
-    "sign_up_with": "Veya ile kayıt ol"
-}
+                    "registration": "Kayıt Ol",
+                    "already_registered": "Zaten kayıtlı mısınız?",
+                    "sign_in": "Giriş Yap",
+                    "username": "Kullanıcı Adı",
+                    "email": "E-posta",
+                    "password": "Şifre",
+                    "confirm_password": "Şifreyi Onayla",
+                    "sign_up_btn": "KAYIT OL",
+                    "sign_up_with": "Veya ile kayıt ol"
+                },
+                "password_recover": {
+    "title": "Şifre Kurtarma",
+    "description": "Kayıtlı e-posta adresinizi girin, PO TRADE hesabınızın şifresini sıfırlamak için talimatların yer aldığı bir e-posta göndereceğiz.",
+    "restore_button": "KURTAR",
+    "back_to_login": "Girişe Dön"
+  }
 
             }
         },
@@ -579,16 +666,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "情報開示",
                 "copyright": "著作権",
                 "registration": {
-    "registration": "登録",
-    "already_registered": "すでに登録済みですか？",
-    "sign_in": "サインイン",
-    "username": "ユーザー名",
-    "email": "メールアドレス",
-    "password": "パスワード",
-    "confirm_password": "パスワードを確認",
-    "sign_up_btn": "登録する",
-    "sign_up_with": "または以下で登録"
-}
+                    "registration": "登録",
+                    "already_registered": "すでに登録済みですか？",
+                    "sign_in": "サインイン",
+                    "username": "ユーザー名",
+                    "email": "メールアドレス",
+                    "password": "パスワード",
+                    "confirm_password": "パスワードを確認",
+                    "sign_up_btn": "登録する",
+                    "sign_up_with": "または以下で登録"
+                },
+                "password_recover": {
+                    "title": "パスワードの回復",
+                    "description": "登録済みのメールアドレスを入力してください。PO TRADEアカウントのパスワードをリセットする手順が記載されたメールをお送りします。",
+                    "restore_button": "復元",
+                    "back_to_login": "ログインに戻る"
+                  }
 
             }
         },
@@ -618,16 +711,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "정보 공개",
                 "copyright": "저작권",
                 "registration": {
-    "registration": "등록",
-    "already_registered": "이미 등록하셨습니까?",
-    "sign_in": "로그인",
-    "username": "사용자 이름",
-    "email": "이메일",
-    "password": "비밀번호",
-    "confirm_password": "비밀번호 확인",
-    "sign_up_btn": "회원가입",
-    "sign_up_with": "또는 다음으로 가입"
-}
+                    "registration": "등록",
+                    "already_registered": "이미 등록하셨습니까?",
+                    "sign_in": "로그인",
+                    "username": "사용자 이름",
+                    "email": "이메일",
+                    "password": "비밀번호",
+                    "confirm_password": "비밀번호 확인",
+                    "sign_up_btn": "회원가입",
+                    "sign_up_with": "또는 다음으로 가입"
+                },
+                "password_recover": {
+                    "title": "비밀번호 복구",
+                    "description": "등록된 이메일 주소를 입력하면 PO TRADE 계정 비밀번호를 재설정하는 방법에 대한 안내 이메일을 보내드립니다.",
+                    "restore_button": "복구",
+                    "back_to_login": "로그인으로 돌아가기"
+                  }
 
             }
         },
@@ -657,16 +756,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "افشا اطلاعات",
                 "copyright": "حق چاپ",
                 "registration": {
-    "registration": "ثبت نام",
-    "already_registered": "قبلاً ثبت‌نام کرده‌اید؟",
-    "sign_in": "ورود",
-    "username": "نام کاربری",
-    "email": "ایمیل",
-    "password": "رمز عبور",
-    "confirm_password": "تأیید رمز عبور",
-    "sign_up_btn": "ثبت نام",
-    "sign_up_with": "یا ثبت‌نام کنید با"
-}
+                    "registration": "ثبت نام",
+                    "already_registered": "قبلاً ثبت‌نام کرده‌اید؟",
+                    "sign_in": "ورود",
+                    "username": "نام کاربری",
+                    "email": "ایمیل",
+                    "password": "رمز عبور",
+                    "confirm_password": "تأیید رمز عبور",
+                    "sign_up_btn": "ثبت نام",
+                    "sign_up_with": "یا ثبت‌نام کنید با"
+                },
+                "password_recover": {
+                    "title": "بازیابی رمز عبور",
+                    "description": "آدرس ایمیل ثبت‌شده خود را وارد کنید تا یک ایمیل حاوی دستورالعمل‌های تنظیم مجدد رمز عبور حساب PO TRADE برای شما ارسال کنیم.",
+                    "restore_button": "بازیابی",
+                    "back_to_login": "بازگشت به ورود"
+                  }
 
             }
         },
@@ -696,16 +801,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Otkrivanje informacija",
                 "copyright": "Autorska prava",
                 "registration": {
-    "registration": "Регистрација",
-    "already_registered": "Већ сте регистровани?",
-    "sign_in": "Пријави се",
-    "username": "Корисничко име",
-    "email": "Е-пошта",
-    "password": "Лозинка",
-    "confirm_password": "Потврдите лозинку",
-    "sign_up_btn": "РЕГИСТРУЈ СЕ",
-    "sign_up_with": "Или се региструјте преко"
-}
+                    "registration": "Регистрација",
+                    "already_registered": "Већ сте регистровани?",
+                    "sign_in": "Пријави се",
+                    "username": "Корисничко име",
+                    "email": "Е-пошта",
+                    "password": "Лозинка",
+                    "confirm_password": "Потврдите лозинку",
+                    "sign_up_btn": "РЕГИСТРУЈ СЕ",
+                    "sign_up_with": "Или се региструјте преко"
+                },
+                "password_recover": {
+                    "title": "Опоравак лозинке",
+                    "description": "Унесите своју регистровану имејл адресу и послаћемо вам имејл са упутствима како да ресетујете лозинку за ваш PO TRADE налог.",
+                    "restore_button": "ОПОРАВИ",
+                    "back_to_login": "Назад на пријаву"
+                  }
 
             }
         },
@@ -735,16 +846,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Divulgarea informațiilor",
                 "copyright": "Drepturi de autor",
                 "registration": {
-    "registration": "Înregistrare",
-    "already_registered": "Deja înregistrat?",
-    "sign_in": "Conectează-te",
-    "username": "Nume de utilizator",
-    "email": "E-mail",
-    "password": "Parolă",
-    "confirm_password": "Confirmă parola",
-    "sign_up_btn": "ÎNREGISTREAZĂ-TE",
-    "sign_up_with": "Sau înregistrează-te cu"
-}
+                    "registration": "Înregistrare",
+                    "already_registered": "Deja înregistrat?",
+                    "sign_in": "Conectează-te",
+                    "username": "Nume de utilizator",
+                    "email": "E-mail",
+                    "password": "Parolă",
+                    "confirm_password": "Confirmă parola",
+                    "sign_up_btn": "ÎNREGISTREAZĂ-TE",
+                    "sign_up_with": "Sau înregistrează-te cu"
+                },
+                "password_recover": {
+    "title": "Recuperare parolă",
+    "description": "Introduceți adresa de e-mail înregistrată și vă vom trimite un e-mail cu instrucțiuni despre cum să resetați parola contului PO TRADE.",
+    "restore_button": "RESTAUREAZĂ",
+    "back_to_login": "Înapoi la autentificare"
+  }
 
             }
         },
@@ -774,16 +891,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Otkrivanje informacija",
                 "copyright": "Autorska prava",
                 "registration": {
-    "registration": "Registracija",
-    "already_registered": "Već ste registrirani?",
-    "sign_in": "Prijavite se",
-    "username": "Korisničko ime",
-    "email": "E-mail",
-    "password": "Lozinka",
-    "confirm_password": "Potvrdite lozinku",
-    "sign_up_btn": "REGISTRIRAJ SE",
-    "sign_up_with": "Ili se registrirajte putem"
-}
+                    "registration": "Registracija",
+                    "already_registered": "Već ste registrirani?",
+                    "sign_in": "Prijavite se",
+                    "username": "Korisničko ime",
+                    "email": "E-mail",
+                    "password": "Lozinka",
+                    "confirm_password": "Potvrdite lozinku",
+                    "sign_up_btn": "REGISTRIRAJ SE",
+                    "sign_up_with": "Ili se registrirajte putem"
+                },
+                "password_recover": {
+                    "title": "Oporavak lozinke",
+                    "description": "Unesite svoju registriranu adresu e-pošte i poslat ćemo vam e-poruku s uputama za resetiranje lozinke vašeg PO TRADE računa.",
+                    "restore_button": "OPORAVI",
+                    "back_to_login": "Povratak na prijavu"
+                  }
 
             }
         },
@@ -823,7 +946,13 @@ i18n.use(initReactI18next).init({
                     "confirm_password": "पासवर्ड पुष्टि करें ",
                     "sign_up_btn": "साइन अप",
                     "sign_up_with": "या साइन अप करें"
-                }
+                },
+                "password_recover": {
+                    "title": "पासवर्ड पुनर्प्राप्ति",
+                    "description": "अपना पंजीकृत ईमेल पता दर्ज करें, और हम आपको आपके PO TRADE खाते का पासवर्ड रीसेट करने के निर्देशों के साथ एक ईमेल भेजेंगे।",
+                    "restore_button": "पुनर्प्राप्त करें",
+                    "back_to_login": "लॉगिन पर वापस जाएं"
+                  }
             }
         },
         el: {
@@ -852,16 +981,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Αποκάλυψη πληροφοριών",
                 "copyright": "Πνευματικά δικαιώματα",
                 "registration": {
-    "registration": "Εγγραφή",
-    "already_registered": "Ήδη εγγεγραμμένος;",
-    "sign_in": "Σύνδεση",
-    "username": "Όνομα χρήστη",
-    "email": "Ηλεκτρονικό ταχυδρομείο",
-    "password": "Κωδικός πρόσβασης",
-    "confirm_password": "Επιβεβαίωση κωδικού πρόσβασης",
-    "sign_up_btn": "ΕΓΓΡΑΦΗ",
-    "sign_up_with": "Ή εγγραφείτε με"
-}
+                    "registration": "Εγγραφή",
+                    "already_registered": "Ήδη εγγεγραμμένος;",
+                    "sign_in": "Σύνδεση",
+                    "username": "Όνομα χρήστη",
+                    "email": "Ηλεκτρονικό ταχυδρομείο",
+                    "password": "Κωδικός πρόσβασης",
+                    "confirm_password": "Επιβεβαίωση κωδικού πρόσβασης",
+                    "sign_up_btn": "ΕΓΓΡΑΦΗ",
+                    "sign_up_with": "Ή εγγραφείτε με"
+                },
+                "password_recover": {
+                    "title": "Ανάκτηση κωδικού πρόσβασης",
+                    "description": "Εισαγάγετε τη δηλωμένη διεύθυνση email σας και θα σας στείλουμε ένα email με οδηγίες για την επαναφορά του κωδικού πρόσβασης του λογαριασμού σας στο PO TRADE.",
+                    "restore_button": "ΕΠΑΝΑΦΟΡΑ",
+                    "back_to_login": "Επιστροφή στη σύνδεση"
+                  }
 
             }
         },
@@ -891,16 +1026,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "তথ্য প্রকাশ",
                 "copyright": "কপিরাইট",
                 "registration": {
-    "registration": "নিবন্ধন",
-    "already_registered": "ইতিমধ্যে নিবন্ধিত?",
-    "sign_in": "প্রবেশ করুন",
-    "username": "ব্যবহারকারীর নাম",
-    "email": "ইমেল",
-    "password": "পাসওয়ার্ড",
-    "confirm_password": "পাসওয়ার্ড নিশ্চিত করুন",
-    "sign_up_btn": "নিবন্ধন করুন",
-    "sign_up_with": "অথবা নিবন্ধন করুন"
-}
+                    "registration": "নিবন্ধন",
+                    "already_registered": "ইতিমধ্যে নিবন্ধিত?",
+                    "sign_in": "প্রবেশ করুন",
+                    "username": "ব্যবহারকারীর নাম",
+                    "email": "ইমেল",
+                    "password": "পাসওয়ার্ড",
+                    "confirm_password": "পাসওয়ার্ড নিশ্চিত করুন",
+                    "sign_up_btn": "নিবন্ধন করুন",
+                    "sign_up_with": "অথবা নিবন্ধন করুন"
+                },
+                "password_recover": {
+    "title": "পাসওয়ার্ড পুনরুদ্ধার",
+    "description": "আপনার নিবন্ধিত ইমেল ঠিকানা লিখুন, এবং আমরা আপনাকে PO TRADE অ্যাকাউন্টের পাসওয়ার্ড পুনরায় সেট করার নির্দেশনা সহ একটি ইমেল পাঠাব।",
+    "restore_button": "পুনরুদ্ধার করুন",
+    "back_to_login": "লগইনে ফিরে যান"
+  }
 
             }
         },
@@ -930,16 +1071,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Розкриття інформації",
                 "copyright": "Авторське право",
                 "registration": {
-    "registration": "Реєстрація",
-    "already_registered": "Вже зареєстровані?",
-    "sign_in": "Увійти",
-    "username": "Ім'я користувача",
-    "email": "Електронна пошта",
-    "password": "Пароль",
-    "confirm_password": "Підтвердьте пароль",
-    "sign_up_btn": "ЗАРЕЄСТРУВАТИСЯ",
-    "sign_up_with": "Або зареєструйтесь через"
-}
+                    "registration": "Реєстрація",
+                    "already_registered": "Вже зареєстровані?",
+                    "sign_in": "Увійти",
+                    "username": "Ім'я користувача",
+                    "email": "Електронна пошта",
+                    "password": "Пароль",
+                    "confirm_password": "Підтвердьте пароль",
+                    "sign_up_btn": "ЗАРЕЄСТРУВАТИСЯ",
+                    "sign_up_with": "Або зареєструйтесь через"
+                },
+                "password_recover": {
+                    "title": "Відновлення пароля",
+                    "description": "Введіть свою зареєстровану електронну адресу, і ми надішлемо вам лист із інструкціями щодо скидання пароля вашого облікового запису PO TRADE.",
+                    "restore_button": "ВІДНОВИТИ",
+                    "back_to_login": "Повернутися до входу"
+                  }
 
             }
         },
@@ -969,16 +1116,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Pagbubunyag ng Impormasyon",
                 "copyright": "Copyright",
                 "registration": {
-    "registration": "Rehistrasyon",
-    "already_registered": "Nakarehistro na?",
-    "sign_in": "Mag-sign in",
-    "username": "Username",
-    "email": "Email",
-    "password": "Password",
-    "confirm_password": "Kumpirmahin ang Password",
-    "sign_up_btn": "MAG-SIGN UP",
-    "sign_up_with": "O mag-sign up gamit"
-}
+                    "registration": "Rehistrasyon",
+                    "already_registered": "Nakarehistro na?",
+                    "sign_in": "Mag-sign in",
+                    "username": "Username",
+                    "email": "Email",
+                    "password": "Password",
+                    "confirm_password": "Kumpirmahin ang Password",
+                    "sign_up_btn": "MAG-SIGN UP",
+                    "sign_up_with": "O mag-sign up gamit"
+                },
+                "password_recover": {
+                    "title": "Pagbawi ng Password",
+                    "description": "Ilagay ang iyong rehistradong email address at magpapadala kami sa iyo ng email na may mga tagubilin kung paano i-reset ang password ng iyong PO TRADE account.",
+                    "restore_button": "IBALIK",
+                    "back_to_login": "Bumalik sa Pag-login"
+                  }
 
             }
         },
@@ -1008,16 +1161,22 @@ i18n.use(initReactI18next).init({
                 "information_disclosure": "Ufunuo wa Taarifa",
                 "copyright": "Hakimiliki",
                 "registration": {
-    "registration": "Usajili",
-    "already_registered": "Umeshajisajili?",
-    "sign_in": "Ingia",
-    "username": "Jina la mtumiaji",
-    "email": "Barua pepe",
-    "password": "Nenosiri",
-    "confirm_password": "Thibitisha nenosiri",
-    "sign_up_btn": "JISAJILI",
-    "sign_up_with": "Au jisajili kwa"
-}
+                    "registration": "Usajili",
+                    "already_registered": "Umeshajisajili?",
+                    "sign_in": "Ingia",
+                    "username": "Jina la mtumiaji",
+                    "email": "Barua pepe",
+                    "password": "Nenosiri",
+                    "confirm_password": "Thibitisha nenosiri",
+                    "sign_up_btn": "JISAJILI",
+                    "sign_up_with": "Au jisajili kwa"
+                },
+                "password_recover": {
+                    "title": "Urejeshaji wa Nenosiri",
+                    "description": "Weka anwani yako ya barua pepe iliyosajiliwa na tutakutumia barua pepe yenye maelekezo ya jinsi ya kuweka upya nenosiri la akaunti yako ya PO TRADE.",
+                    "restore_button": "REJESHA",
+                    "back_to_login": "Rudi kwenye Kuingia"
+                  }
 
             }
         }
