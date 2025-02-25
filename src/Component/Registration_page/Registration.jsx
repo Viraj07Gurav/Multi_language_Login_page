@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Input } from "@material-tailwind/react";
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../Context/ThemeContext';
@@ -46,6 +46,10 @@ function Registration() {
         },
         onError: () => console.log("Login Failed"),
     });
+
+    useEffect(() => {
+        localStorage.setItem("formData", JSON.stringify(formData));
+    }, [formData]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -233,7 +237,7 @@ function Registration() {
                                     class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
                                 >
                                     {t('registration.email')} <span className=''>*</span>
-                                    {validFields.email && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+                                    {validFields.email && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
 
                                 </label>
                                 
@@ -260,7 +264,7 @@ function Registration() {
                                         className={`absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
                                     >
                                         {t('registration.password')} <span className=''>*</span>
-                                        {validFields.password && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+                                        {validFields.password && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
 
                                     </label>
                                    
@@ -296,7 +300,7 @@ function Registration() {
                                         className={`  absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
                                     >
                                         {t('registration.confirm_password')} <span className=''>*</span>
-                                        {validFields.confirmPassword && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+                                        {validFields.confirmPassword && <span className={`h-4 w-4 rounded-2xl inline-block text-center  ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
 
                                     </label>
                                 </div>
