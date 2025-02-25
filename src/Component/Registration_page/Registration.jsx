@@ -13,7 +13,7 @@ import { jwtDecode } from "jwt-decode";
 function Registration() {
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
-    const { color, buttonBg, buttonTextColor, buttonColor, isRtl,underline ,border} = useTheme()
+    const { color, buttonBg, buttonTextColor, buttonColor, isRtl, underline, border,textColor} = useTheme()
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
@@ -22,38 +22,80 @@ function Registration() {
         password: "",
         confirmPassword: "",
     });
+
+    // State to track validation status
+    const [validFields, setValidFields] = useState({
+        userName: false,
+        email: false,
+        password: false,
+        confirmPassword: false,
+    });
+    console.log("setvalidation",validFields.userName);
+
     const login = useGoogleLogin({
-            onSuccess: (tokenResponse) => {
-              console.log("Token Response:", tokenResponse);
-        
-              // Decode the ID token (optional)
-              fetch(`https://www.googleapis.com/oauth2/v3/userinfo`, {
+        onSuccess: (tokenResponse) => {
+            console.log("Token Response:", tokenResponse);
+
+            // Decode the ID token (optional)
+            fetch(`https://www.googleapis.com/oauth2/v3/userinfo`, {
                 headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-              })
+            })
                 .then((res) => res.json())
                 .then((user) => console.log("User Info:", user))
                 .catch((err) => console.log("Error fetching user info:", err));
-            },
-            onError: () => console.log("Login Failed"),
-          });
+        },
+        onError: () => console.log("Login Failed"),
+    });
 
-        const handleChange = (e) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
 
-            const updateformData=({ ...formData, [e.target.name]: e.target.value });
-            setFormData(updateformData)
-            localStorage.setItem("formData", JSON.stringify(updateformData));
+    // Update form data safely using functional update
+    setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: value
+    }));
 
-        };
+    // Update validation state safely using functional update
+    setValidFields(prevValidFields => ({
+        ...prevValidFields,
+        [name]: validateField(name, value)
+    }));
 
+    
+};
+        // switch (name) {
+        //     case "userName":
+        //         setValidFields({ ...validFields, userName: value.trim() !== "" });
+        //       break;
+        //     case "email":
+        //         setValidFields({ ...validFields, email: /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(value) });
+        //       break;
+        //     case "password":
+        //         setValidFields({ ...validFields, password: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+        //       break;
+        //       case "confirmPassword":
+        //         setValidFields({ ...validFields, confirmPassword: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+        //       break;
+        //     default:
+        //       break;
+        //   }
+       
+    //     localStorage.setItem("formData", JSON.stringify(updateformData));
+
+    // };
+    
     const validateForm = () => {
-        if(!formData.userName.trim()||!formData.email.trim()||!formData.password||!formData.confirmPassword){
-            toast.error("All field required.")
+        if (!formData.userName.trim() || !formData.email.trim() || !formData.password || !formData.confirmPassword) {
+               toast.error("All field required.")
             return false;
 
         }
         if (!formData.userName.trim()) {
             toast.error("Username is required.");
             return false;
+        }else{
+                
         }
         if (formData.userName.length > 20) {
             toast.error("Username cannot exceed 20 characters.");
@@ -69,14 +111,14 @@ function Registration() {
         if (!formData.password) {
             toast.error("Password is required.");
             return false;
-        }else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.password)) {
+        } else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.password)) {
             toast.error("Password must be at least 8 characters, include an uppercase letter, a number, and a special character[@ or #].");
             return false;
         }
         if (!formData.confirmPassword) {
             toast.error("Confirm Password is required.");
             return false;
-        }else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.confirmPassword)) {
+        } else if (! /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(formData.confirmPassword)) {
             toast.error("Password must be at least 8 characters, include an uppercase letter, a number, and a special character[@ or #].");
             return false;
         }
@@ -87,7 +129,27 @@ function Registration() {
 
         return true;
     };
-
+   
+    const validateField = (name, value) => {
+        switch (name) {
+            case "userName":
+                return value.trim() !== "";
+            
+            case "email":
+                return /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(value)
+              
+            case "password":
+                // setValidFields({ ...validFields, password: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+                return /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) 
+            
+              case "confirmPassword":
+                // setValidFields({ ...validFields, confirmPassword: /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value) });
+                return /^(?=.*[A-Z])(?=.*\d)(?=.*[@#])[A-Za-z\d@#]{8,}$/.test(value)
+         
+            default:
+              break;
+        }
+    };
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
@@ -96,9 +158,9 @@ function Registration() {
     };
 
     return (
-        <div className={`${color} bg-[#ffffff] p-4 mx-5 rounded-2xl md:px-8 md:mx-0 ` }  >
+        <div className={`${color} bg-[#ffffff] p-4 mx-5 rounded-2xl md:px-8 md:mx-0 `}  >
             <div>
-            <ToastContainer  autoClose={3000} position="top-center"   />   {/*toastStyle={{ width: "90%", maxWidth: "300px" } */}
+                <ToastContainer autoClose={5000} position="top-center" />   {/*toastStyle={{ width: "90%", maxWidth: "300px" } */}
 
             </div>
             <div className='flex flex-col justify-center  items-center '>
@@ -126,121 +188,133 @@ function Registration() {
                 </div>
             </div>
             <form action="" onSubmit={handleSubmit}>
-            <div className='w-full'>
-                <div className='p-2'>
-                    <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
-                        <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
-                            <input
-                                id="userName"
-                                name="userName"
-                                type="text"
-                                placeholder=""
-                                value={formData.userName}
-                                onChange={handleChange}
-                                class={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
-                            />
-                            <label
-                                for="username"
-                                class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
-                            >
-                                {t('registration.username')} <span className=''>*</span>
-                            </label>
-
-                        </div>
-                    </div>
-                </div>
-                <div className='p-2'>
-                    <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
-                        <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
-                            <input
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                type="email"
-                                placeholder=""
-                                class={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
-                            />
-                            <label
-                                for="username"
-                                class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
-                            >
-                                {t('registration.email')} <span className=''>*</span>
-                            </label>
-
-                        </div>
-                    </div>
-                </div>
-                <div className='p-2'>
-                    <div class="  " dir={isRtl ? "rtl" : "ltr"}>
-                        <div class="relative w-full " dir={isRtl ? "rtl" : "ltr"}>
-                            <div>
+                <div className='w-full'>
+                    <div className='p-2'>
+                        <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
+                            <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
+                                
                                 <input
-                                    id="password"
-                                    name="password"
-                                    type={showPassword ? "text" : "password"}
+                                    id="userName"
+                                    name="userName"
+                                    type="text"
                                     placeholder=""
-                                    value={formData.password}
+                                    value={formData.userName}
                                     onChange={handleChange}
+                                    class={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
+                                />
+                                
+                                <label
+                                    for="username"
+                                    class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                >
+                                     {t('registration.username')} <span className=''>*</span>
+                                {validFields.userName && <span className={`h-4 w-4 rounded-2xl inline-block text-center ${buttonColor} ${textColor} ml-[5px]`}>✔</span>}
+                                    
+                                </label>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className='p-2'>
+                        <div class=" " dir={isRtl ? "rtl" : "ltr"}>  {/*flex items-center */}
+                            <div class="relative w-full" dir={isRtl ? "rtl" : "ltr"}>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    type="email"
+                                    placeholder=""
+                                    class={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
+                                />
+                                <label
+                                    for="username"
+                                    class={`absolute -top-4 text-[#8d9fae]  text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                >
+                                    {t('registration.email')} <span className=''>*</span>
+                                    {validFields.email && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+
+                                </label>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className='p-2'>
+                        <div class="  " dir={isRtl ? "rtl" : "ltr"}>
+                            <div class="relative w-full " dir={isRtl ? "rtl" : "ltr"}>
+                                <div>
+                                    <input
+                                        id="password"
+                                        name="password"
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder=""
+                                        value={formData.password}
+                                        onChange={handleChange}
+
+                                        className={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
+                                    />
+                                    <label
+                                        for="password"
+                                        className={`absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                    >
+                                        {t('registration.password')} <span className=''>*</span>
+                                        {validFields.password && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+
+                                    </label>
                                    
-                                    className={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
-                                />
-                                <label
-                                    for="password"
-                                    className={`absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                </div>
+                                <button
+                                    dir={isRtl ? "rtl" : "ltr"}
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
                                 >
-                                   {t('registration.password')} <span className=''>*</span>
-                                </label>
+                                    {showPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
+                                </button>
                             </div>
-                            <button
-                                dir={isRtl ? "rtl" : "ltr"}
-                                type="button"
-                                onClick={() => setShowPassword(!showPassword)}
-                                className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
-                            >
-                                {showPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
-                            </button>
+                        </div>
+                    </div>
+                    <div className='p-2'>
+                        <div class="  " dir={isRtl ? "rtl" : "ltr"}>
+                            <div class="relative w-full " dir={isRtl ? "rtl" : "ltr"}>
+                                <div>
+                                    <input
+                                        id="confirmPassword"
+                                        name="confirmPassword"
+                                        type={showConfirmPassword ? "text" : "password"}
+                                        value={formData.confirmPassword}
+                                        onChange={handleChange}
+                                        placeholder=""
+
+                                        className={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
+                                    />
+                                    <label
+
+                                        for="password"
+                                        className={`  absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
+                                    >
+                                        {t('registration.confirm_password')} <span className=''>*</span>
+                                        {validFields.confirmPassword && <span style={{ color: "green", marginLeft: "5px" }}>✔</span>}
+
+                                    </label>
+                                </div>
+                                <button
+                                    dir={isRtl ? "rtl" : "ltr"}
+                                    type="button"
+                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                    className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
+                                >
+                                    {showConfirmPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className='p-2'>
-                    <div class="  " dir={isRtl ? "rtl" : "ltr"}>
-                        <div class="relative w-full " dir={isRtl ? "rtl" : "ltr"}>
-                            <div>
-                                <input
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    value={formData.confirmPassword}
-                                    onChange={handleChange}
-                                    placeholder=""
-                                
-                                  
-                                    className={` ${isRtl ? "text-right" : "text-left"} w-full border-b ${border} py-1 focus:border-b-1 transition-colors focus:outline-none peer bg-inherit`}
-                                />
-                                <label
-                                
-                                    for="password"
-                                    className={`  absolute -top-4 text-[#8d9fae] text-xs left-0 cursor-text peer-focus:text-xs peer-focus:-top-4 transition-all peer-focus:text-blue-500 peer-placeholder-shown:top-1 peer-placeholder-shown:text-sm  ${isRtl ? "right-0 text-right" : "left-0 text-left"}`}
-                                >
-                                {t('registration.confirm_password')} <span className=''>*</span>
-                                </label>
-                            </div>
-                            <button
-                                dir={isRtl ? "rtl" : "ltr"}
-                                type="button"
-                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                className={`absolute inset-y-0 ${isRtl ? "left-3" : "right-3"} flex items-center`}
-                            >
-                                {showConfirmPassword ? <EyeOff className="w-5 h-5 text-gray-500" /> : <Eye className="w-5 h-5 text-gray-500" />}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div className='flex flex-col justify-start items-center pb-2 mt-2 w-full px-2'>
-                {/* <div className={`flex flex-col items-center md:flex-row md:justify-between lg:justify-between w-full `} dir={isRtl ? "rtl" : "ltr"}>
+
+                <div className='flex flex-col justify-start items-center pb-2 mt-2 w-full px-2'>
+                    {/* <div className={`flex flex-col items-center md:flex-row md:justify-between lg:justify-between w-full `} dir={isRtl ? "rtl" : "ltr"}>
                     <div className=''>
                         <label className={`text-[#758b9d] text-sm flex ${isRtl ? "flex-row-reverse gap-1" : ""}`} dir={isRtl ? "rtl" : "ltr"}>
                             <input type="checkbox" name="remember" value="1" data-gtm-form-interact-field-id="0" className="form-checkbox border-gray-300 checked:border-blue-500 checked:bg-blue-500 w-auto " />&nbsp;I have read and accepted the following agreement:
@@ -253,8 +327,8 @@ function Registration() {
                      &nbsp;&nbsp;Public offer agreement
                        </a>
                 </div> */}
-                <button type='submit' className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('registration.sign_up_btn')}</button>
-            </div>
+                    <button type='submit' className={`text-white font-semibold  bg-blue-500 w-72 h-12 rounded-[10px] ${buttonBg}  mt-5`}>{t('registration.sign_up_btn')}</button>
+                </div>
 
             </form>
             <div className='flex  flex-col justify-center items-center py-6 '>
@@ -267,7 +341,7 @@ function Registration() {
                         <span class="">Facebook</span>
                     </button>
 
-                    <button  onClick={() => login()} className="flex w-34 items-center bg-[#f0f0f0] text-gray-500  rounded-lg  px-6 py-2 text-sm font-medium outline-none  ">
+                    <button onClick={() => login()} className="flex w-34 items-center bg-[#f0f0f0] text-gray-500  rounded-lg  px-6 py-2 text-sm font-medium outline-none  ">
                         <svg className="h-4 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="800px" viewBox="-0.5 0 48 48" version="1.1"> <title>Google-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-401.000000, -860.000000)"> <g id="Google" transform="translate(401.000000, 860.000000)"> <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" id="Fill-1" fill="#FBBC05"> </path> <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" id="Fill-2" fill="#EB4335"> </path> <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" id="Fill-3" fill="#34A853"> </path> <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" id="Fill-4" fill="#4285F4"> </path> </g> </g> </g> </svg>
                         <span>Google</span>
                     </button>
