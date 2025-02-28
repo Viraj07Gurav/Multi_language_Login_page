@@ -3,26 +3,30 @@ import { Input } from "@material-tailwind/react";
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../Context/ThemeContext';
 import { Eye, EyeOff } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useGoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+ 
 
 function Registration() {
     const navigate = useNavigate();  // Initialize navigation
+
     const [fullName, setFullName] = useState("");
     const { t } = useTranslation();
     const { color, buttonBg, buttonTextColor, buttonColor, isRtl, underline, border, textColor } = useTheme()
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [formData, setFormData] = useState({
-        userName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+    const [formData, setFormData] = useState(() => {
+        const savedData = localStorage.getItem("formData");
+        return savedData ? JSON.parse(savedData) : {
+            userName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        };
     });
 
     // State to track validation status
@@ -50,8 +54,26 @@ function Registration() {
     });
 
     useEffect(() => {
-        localStorage.setItem("formData", JSON.stringify(formData));
+        // const data=JSON.parse(localStorage.getItem("formData")||[]);
+        // let arr=[]
+        // arr=[...data]
+        // arr.push(formData)
+
+        // localStorage.setItem("formData", JSON.stringify(formData));
+        if (formData.userName || formData.email || formData.password || formData.confirmPassword) {
+            localStorage.setItem("formData", JSON.stringify(formData));
+        }
+        
     }, [formData]);
+    useEffect(() => {
+        // Clear form fields when visiting the registration page
+        setFormData({
+            userName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        });
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -164,6 +186,14 @@ function Registration() {
         e.preventDefault();
         if (validateForm()) {
             toast.success("Form submitted successfully!");
+            // Clear input fields without removing local storage data
+        // Clear only input fields without affecting localStorage
+        setFormData({
+            userName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+        });
             setTimeout(() => {
                 navigate("/");  // Redirect to Sign-In page
             }, 2000); // Wait 2 seconds to show success message

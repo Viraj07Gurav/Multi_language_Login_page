@@ -12,6 +12,8 @@ import ColorSwitcher from './Component/ColorSwitcher'
 import Registration from './Component/Registration_page/Registration'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PasswordRecovery from './Component/PasswordRecovery/PasswordRecovery'
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute'
+import Dashboard from './Component/Dashboard/Dashboard'
 
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
                 <Route path="/" element={<Signup />} />
                 <Route path="/register" element={<Registration />} />
                 <Route path="/password" element={<PasswordRecovery/>}/>
+                <Route path="/dashboard" element={<PrivateRoute><Dashboard/></PrivateRoute>} />
               </Routes>
               <div className='pt-5'>
                 <Footer />

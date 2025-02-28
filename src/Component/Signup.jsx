@@ -5,7 +5,7 @@ import { useTheme } from './Context/ThemeContext';
 import { Eye, EyeOff } from "lucide-react";
 import { Link } from 'react-router-dom';
 import { CgPassword } from 'react-icons/cg';
-
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -14,6 +14,8 @@ import { jwtDecode } from "jwt-decode";
 
 function Signup() {
     const [fullName, setFullName] = useState("");
+    const navigate = useNavigate();  // Initialize navigation
+
     const { t } = useTranslation();
     const { color, buttonBg, buttonTextColor, buttonColor, isRtl,underline ,border} = useTheme()
     const [showPassword, setShowPassword] = useState(false);
@@ -80,6 +82,10 @@ function Signup() {
         if(validation()){
             if((storedData.email === formData.email && storedData.password === formData.password)){
                 toast.success("Login in successfully!");
+                localStorage.setItem("loggedin",true);
+                setTimeout(() => {
+                    navigate("/dashboard");  // Redirect to Sign-In page
+                }, 2000); // Wait 2 seconds to show success message
             }
             else if((storedData.email==formData.email)&& (storedData.password!=formData.password)){
                 toast.error("Invalid  password !");
